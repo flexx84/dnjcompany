@@ -232,7 +232,7 @@
     background-size: cover;
     background-position: center;
     margin: 0;
-    padding: 0;
+    padding: 100px 0 0 0;
 }
 
 .company-content {
@@ -246,17 +246,20 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 0;
+    gap: 50px;
     min-height: auto;
+    width: 100%;
 }
 
 .about_logo {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     background: transparent;
     overflow: visible;
+    margin-bottom: 0;
+    order: 2;
 }
 
 .logo-display {
@@ -279,9 +282,12 @@
     justify-content: center;  /* 가로 중앙 정렬 */
     align-items: center;      /* 세로 중앙 정렬 */
     list-style: none;
+    gap: 0;
+    background: transparent;
     padding: 0;
-    margin: 0;
-    width: 100%;
+    margin-left: 0;
+    width: 50%;
+    order: 1;
 }
 
 .menu {
@@ -289,7 +295,7 @@
     display: flex;
     justify-content: center;
     height: 880px;
-    width: 25%;
+    width: 20%;
     background: transparent;
     border-radius: 0;
     box-shadow: none;
@@ -323,14 +329,17 @@
     top: 0px;
     left: 0;
     z-index: -1;
-    width: 100%;
-    height: 850px;
-    border-radius: 30px;
-    box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.6);
+    width: 90%;
+    height: 800px;
+    border-radius: 25px;
+    box-shadow: 15px 15px 15px 0 rgba(0, 0, 0, 0.6);
     background-color: rgba(255, 138, 101, 0.7);
     transition: all 0.3s;
     opacity: 0;
     visibility: hidden;
+    margin: 0 auto;  /* 추가: 중앙 정렬 */
+    left: 50%;       /* 추가: 중앙 정렬 */
+    transform: translateX(-50%);  /* 추가: 중앙 정렬 */
 }
 
 .menu.active a::after {
@@ -759,14 +768,22 @@
     align-items: center;     /* 가운데 정렬 */
     margin-bottom: 60px;
     text-align: center;      /* 텍스트 중앙 정렬 */
+    width: 100%;  /* 추가 */
+
 }
 
 .notice-header h2 {
     font-size: 42px;
     color: #37474F;
-    margin-top: 20px;        /* 헤더 아래에 간격 추가 */
+    margin: 0 0 15px 0;        /* 헤더 아래에 간격 추가 */
 }
 
+.notice-header p {
+    font-size: 16px;  /* 추가 */
+    color: #666;      /* 추가 */
+    margin: 0;        /* 추가 */
+}   
+        
 .notice-list {
     background: white;
     border-radius: 20px;
@@ -829,55 +846,41 @@
     padding: 80px 0 30px;
 }
 
-.footer-content {
+css.footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 40px;
+    gap: 30px;  /* 간격을 줄임 */
     margin-bottom: 40px;
     max-width: 800px;
     margin: 0 auto 40px auto;
 }
 
-.footer-logo {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;  /* 로고 가운데 정렬 추가 */
-}
-
-.footer-logo-image {
-    height: 32px;
-    width: auto;
-    margin-right: 15px;
-}
-
 .footer-nav {
     display: flex;
     gap: 40px;
-    margin-bottom: 30px;
-    justify-content: center;  /* 네비게이션 가운데 정렬 추가 */
+    margin-bottom: 0;  /* 기존 margin-bottom 제거 */
+    justify-content: center;
+    order: 1;  /* 첫 번째 순서 */
 }
 
-.footer-nav a {
-    color: #ECEFF1;
-    text-decoration: none;
-    transition: color 0.3s;
-    font-size: 16px;
-}
-
-.footer-nav a:hover {
-    color: #FF8A65;
+.footer-logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 0;  /* 기존 margin-bottom 제거 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;  /* 두 번째 순서 */
 }
 
 .footer-info {
     font-size: 15px;
     line-height: 2;
     color: #ECEFF1;
-    text-align: center;  /* 푸터 정보 가운데 정렬 추가 */
+    text-align: center;
+    order: 3;  /* 세 번째 순서 */
 }
 
 .footer-bottom {
@@ -1217,11 +1220,11 @@
 
     <section class="notice-section" id="notice">
         <div class="container">
-            <div class="notice-header fade-in">
+            <div class="notice-header">
                 <h2>NOTICE</h2>
                 <p>디앤제이그룹의 소식을 만나보세요.</p>
             </div>
-            <div class="notice-list fade-in">
+            <div class="notice-list">
                 <div class="notice-item">
                     <div class="notice-content">
                         <h4><span class="notice-badge">NEWS</span>D&J GROUP 고사리손의 창업 축하</h4>
@@ -1257,31 +1260,30 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">
-                        <img src="images/dnjlogo.png" alt="D&J GROUP" class="footer-logo-image">
-                    </div>
-                    <div class="footer-nav">
-                        <a href="#">회사소개</a>
-                        <a href="#">개인정보처리방침</a>
-                        <a href="#">이용약관</a>
-                    </div>
-                </div>
-                <div class="footer-info">
-                    <p>주식회사 디앤제이그룹 | 대표: 설동민, 김진 | 사업자등록번호: 836-81-02935</p>
-                    <p>주소: 부산광역시 부산진구 서면문화로 49-2 7층 | 전화: 070-8885-9999</p>
-                    <p>이메일: dnjgroup@naver.com</p>
-                    <p>Copyright 2024 D&J GROUP. All rights reserved.</p>
-                </div>
+   <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-nav">
+                <a href="#">회사소개</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용약관</a>
             </div>
-            <div class="footer-bottom">
-                <p>본 웹사이트는 데모 목적으로 제작되었습니다.</p>
+            <div class="footer-logo">
+                <img src="images/dnj.png" alt="D&J GROUP" class="footer-logo-image">
+                D&J GROUP
+            </div>
+            <div class="footer-info">
+                <p>주식회사 디앤제이그룹 | 대표: 설동민, 김진 | 사업자등록번호: 836-81-02935</p>
+                <p>주소: 부산광역시 부산진구 서면문화로 49-2 7층 | 전화: 070-8885-9999</p>
+                <p>이메일: dnjgroup@naver.com</p>
+                <p>Copyright 2024 D&J GROUP. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>본 웹사이트는 데모 목적으로 제작되었습니다.</p>
+        </div>
+    </div>
+</footer>
 
     <script>
         // Header scroll effect
