@@ -351,12 +351,41 @@
 }
 
 .icon_mark {
-    margin-left: -10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s;
-    font-size: 24px;
-    position: absolute;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.hover-logo {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.hover-logo img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.hover-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .menu h5 {
@@ -406,7 +435,7 @@
     max-width: 900px;
     margin: 0 auto;
     padding: 60px;
-    background: rgba(255, 255, 255, 0.9);    /* ← 반투명 배경 */
+    background: rgba(255, 255, 255, 0.6);    /* ← 반투명 배경 */
     backdrop-filter: blur(10px);              /* ← 블러 효과 추가 */
     border: 1px solid rgba(255, 255, 255, 0.2);  /* ← 글래스 효과 */
     border-radius: 35px;
@@ -1031,7 +1060,12 @@
                         <a href="#company" data-tab="company">
                             <div class="num">
                                 <span>01</span>
-                                <div class="icon_mark">🏢</div>
+                                <div class="icon_mark">
+    <div class="hover-logo">
+        <img src="images/dnjmain.png" alt="D&J Logo">
+    </div>
+    <div class="hover-number">01</div>
+</div>
                             </div>
                             <h5>Company</h5>
                         </a>
@@ -1040,7 +1074,11 @@
                         <a href="#ceo" data-tab="ceo">
                             <div class="num">
                                 <span>02</span>
-                                <div class="icon_mark">👔</div>
+                                 <div class="hover-logo">
+        <img src="images/dnjmain.png" alt="D&J Logo">
+    </div>
+    <div class="hover-number">02</div>
+</div>
                             </div>
                             <h5>CEO</h5>
                         </a>
@@ -1049,7 +1087,11 @@
                         <a href="#history" data-tab="history">
                             <div class="num">
                                 <span>03</span>
-                                <div class="icon_mark">📈</div>
+                                 <div class="hover-logo">
+        <img src="images/dnjmain.png" alt="D&J Logo">
+    </div>
+    <div class="hover-number">03</div>
+</div>
                             </div>
                             <h5>History</h5>
                         </a>
@@ -1058,7 +1100,11 @@
                         <a href="#directions" data-tab="directions">
                             <div class="num">
                                 <span>04</span>
-                                <div class="icon_mark">📍</div>
+                                 <div class="hover-logo">
+        <img src="images/dnjmain.png" alt="D&J Logo">
+    </div>
+    <div class="hover-number">04</div>
+</div>
                             </div>
                             <h5>Directions</h5>
                         </a>
