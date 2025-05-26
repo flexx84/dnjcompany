@@ -16,19 +16,6 @@
             line-height: 1.6;
             color: #333;
         }
-        /* Container 스타일 추가 */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 반응형을 위한 추가 스타일 */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-}
 
         /* Header */
         .header {
@@ -696,10 +683,9 @@
             background-image: url('images/bf4.jpg');
         }
 
-       
-        .franchise-card.djconsulting::before {
-    background-image: url('images/bf5.jpg'); /* 적절한 이미지로 변경 */
-}
+        .franchise-card.consulting::before {
+            background-image: url('images/mainslide3.png');
+        }
 
         .franchise-content {
             position: relative;
@@ -1422,7 +1408,7 @@
                     case 'D&J Consulting Brand':
                         title = 'D&J Consulting Brand';
                         description = 'D&J GROUP만의 독창적인 컨설팅 브랜드를 통해 차별화된 서비스를 제공합니다. 전문성과 신뢰성을 바탕으로 고객의 성공을 위해 최선을 다합니다. 혁신적인 솔루션과 체계적인 프로세스로 최고의 결과를 보장합니다.';
-                        categoryClass = ''djconsulting';
+                        categoryClass = 'consulting';
                         break;
                     default:
                         title = 'Business Field';
