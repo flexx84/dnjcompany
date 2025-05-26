@@ -756,34 +756,49 @@
         }
 
         /* Notice Section */
+
+/* Container 스타일 추가 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Notice Section 스타일 수정 */
 .notice-section {
     padding: 120px 0;
     background: #ECEFF1;
+    text-align: center;
+}
+
+.notice-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .notice-header {
     display: flex;
-    flex-direction: column;  /* 세로 방향으로 변경 */
+    flex-direction: column;
     justify-content: center;
-    align-items: center;     /* 가운데 정렬 */
+    align-items: center;
     margin-bottom: 60px;
-    text-align: center;      /* 텍스트 중앙 정렬 */
-    width: 100%;  /* 추가 */
-
+    text-align: center;
+    width: 100%;
 }
 
 .notice-header h2 {
     font-size: 42px;
     color: #37474F;
-    margin: 0 0 15px 0;        /* 헤더 아래에 간격 추가 */
+    margin: 0 0 15px 0;
 }
 
 .notice-header p {
-    font-size: 16px;  /* 추가 */
-    color: #666;      /* 추가 */
-    margin: 0;        /* 추가 */
-}   
-        
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
 .notice-list {
     background: white;
     border-radius: 20px;
@@ -839,6 +854,19 @@
     font-weight: 600;
 }
 
+/* View More 버튼 스타일 */
+.view-more {
+    color: #FF8A65;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.view-more:hover {
+    color: #FF7043;
+    text-decoration: underline;
+}
       /* Footer */
 .footer {
     background: #37474F;
@@ -960,7 +988,7 @@ css.footer-content {
     background-size: cover;
     background-position: center;
     margin: 0;
-    padding: 100px 0 0 0; /* 상단 패딩만 유지 */
+    padding: 100px 10% 50px 10%;  /* 좌우에 10% 여백 */
 }
 
 .inner.flex {
