@@ -379,13 +379,15 @@
     justify-content: center;
     margin: 0 auto 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
+    overflow: visible;
+    padding: 10px;
 }
 
 .hover-logo img {
-    width: 50px;
-    height: 50px;
+    width: 60px;  /* 크기 증가 */
+    height: 60px; /* 크기 증가 */
     object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); /* 색상 변경 시도 */
 }
 
 .hover-number {
@@ -934,36 +936,45 @@
             }
 
               .company-section {
-               flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start; /* center에서 flex-start로 변경 */
+    background: linear-gradient(rgba(55, 71, 79, 0.8), rgba(55, 71, 79, 0.6)),
+                url('images/company.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 100px 0 0 0; /* 상단 패딩만 유지 */
+}
+
+.inner.flex {
+    display: flex;
+    align-items: flex-start; /* flex-end에서 flex-start로 변경 */
+    justify-content: flex-start; /* space-between에서 flex-start로 변경 */
+    gap: 50px; /* 간격 추가 */
+    min-height: auto;
+    width: 100%;
+}
+
+.about_logo {
+    flex: 0 0 auto; /* flex: 1에서 변경 */
+    display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;  /* 필요에 따라 조정 */   
-        min-height: auto;
-        padding: 80px 0;
-    }
+    justify-content: flex-start;
+    background: transparent;
+    overflow: visible;
+    margin-bottom: 0; /* 하단 마진 제거 */
+}
 
-    .inner.flex {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .about_logo {
-        margin-bottom: 40px;
-        justify-content: center;
-    }
-
-    .logo-display {
-        font-size: 32px;
-        letter-spacing: 3px;
-        text-align: center;
-    }
-
-    .main__section02__menus {
-        width: 100%;
-        margin-left: 0;
-        flex-direction: column;
-        height: auto;
-    }
+.main__section02__menus {
+    display: flex;
+    width: auto; /* 50%에서 auto로 변경 */
+    margin-left: 0; /* 16.09%에서 0으로 변경 */
+    list-style: none;
+    gap: 0;
+    background: transparent;
+}
 
     .menu {
         height: 120px;
