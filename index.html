@@ -398,21 +398,21 @@
 
         .tab-content-section {
             padding: 100px 0;
-           background: linear-gradient(135deg, rgba(248, 249, 250, 0.7) 0%, rgba(255, 255, 255, 0.7) 100%);
+           background: transparent;
         }
 
         .tab-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px;
-             background: rgba(255, 255, 255, 0.8);
-             backdrop-filter: blur(10px);
-             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 35px; 
-            box-shadow: 0 20px 60px rgba(55, 71, 79, 0.1);
-            position: relative;
-            overflow: hidden;
+   text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.9);    /* ← 반투명 배경 */
+    backdrop-filter: blur(10px);              /* ← 블러 효과 추가 */
+    border: 1px solid rgba(255, 255, 255, 0.2);  /* ← 글래스 효과 */
+    border-radius: 35px;
+    box-shadow: 0 20px 60px rgba(55, 71, 79, 0.15);
+    position: relative;
+    overflow: hidden;
         }
 
         .tab-content::before {
