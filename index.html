@@ -467,53 +467,159 @@
 
         /* Business Section */
         .business-section {
-            padding: 120px 0;
-            background: white;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .business-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 138, 101, 0.05) 0%, transparent 50%);
         }
 
         .business-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 80px;
-            align-items: center;
+            grid-template-columns: 35% 65%;
+            gap: 0;
+            align-items: stretch;
+            min-height: 600px;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(55, 71, 79, 0.12);
+            position: relative;
+            z-index: 2;
         }
 
         .business-categories {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ECEFF1 100%);
+            padding: 60px 40px;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 0;
+            position: relative;
         }
 
-        .business-categories h2 {
-            margin-bottom: 40px;
+        .business-categories::before {
+            content: '';
+            position: absolute;
+            top: 100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 138, 101, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        .business-header {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .business-title {
+            background: #D7CCC8;
+            border-radius: 50px;
+            padding: 20px 40px;
+            display: inline-block;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .business-title h2 {
+            font-size: 24px;
+            font-weight: 600;
             color: #37474F;
-            font-size: 42px;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .business-categories-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
         }
 
         .category {
-            padding: 25px;
-            background: #ECEFF1;
-            border-radius: 15px;
+            padding: 25px 30px;
+            background: transparent;
+            border-radius: 0;
             transition: all 0.4s ease;
             cursor: pointer;
-            border: 2px solid transparent;
+            border: none;
+            border-left: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
-        .category:hover, .category.active {
-            background: #37474F;
+        .category::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #FF8A65 0%, #FF7043 100%);
+            transition: width 0.4s ease;
+            z-index: 1;
+        }
+
+        .category-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .category:hover::before,
+        .category.active::before {
+            width: 100%;
+        }
+
+        .category:hover,
+        .category.active {
             color: white;
-            transform: translateX(15px);
-            border-color: #FF8A65;
-            box-shadow: 0 10px 25px rgba(55, 71, 79, 0.2);
+            border-left-color: #FF8A65;
+            transform: translateX(8px);
+        }
+
+        .category h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .category p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .category.marketing {
+            background: linear-gradient(135deg, #FF8A65 0%, #FF7043 100%);
+            color: white;
+            border-left-color: #FF8A65;
+        }
+
+        .category.marketing::before {
+            width: 100%;
         }
 
         .franchise-card {
             background: linear-gradient(135deg, #FF8A65 0%, #FF7043 100%);
-            border-radius: 25px;
-            padding: 80px;
+            padding: 80px 60px;
             color: white;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .franchise-card::before {
@@ -527,42 +633,71 @@
             transform: rotate(45deg);
         }
 
-        .franchise-card h3 {
-            font-size: 42px;
-            margin-bottom: 30px;
+        .franchise-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><circle fill="rgba(255,255,255,0.1)" cx="150" cy="150" r="100"/><circle fill="rgba(255,255,255,0.05)" cx="200" cy="100" r="60"/></svg>');
+            background-size: contain;
+            opacity: 0.3;
+        }
+
+        .franchise-content {
             position: relative;
             z-index: 2;
         }
 
+        .franchise-card h3 {
+            font-size: 64px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
         .franchise-card p {
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 40px;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 50px;
             opacity: 0.95;
-            position: relative;
-            z-index: 2;
+            max-width: 500px;
+            letter-spacing: 0.3px;
         }
 
         .view-more {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 15px;
             font-size: 16px;
-            position: relative;
-            z-index: 2;
             transition: all 0.3s;
+            letter-spacing: 1px;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.1);
         }
 
         .view-more:hover {
             transform: translateX(5px);
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
         }
 
         .view-more::after {
             content: '→';
             font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .view-more:hover::after {
+            transform: translateX(3px);
         }
 
         /* Notice Section */
@@ -751,14 +886,35 @@
                 font-size: 16px;
             }
 
+            .company-hero {
+                height: 50vh;
+            }
+
+            .company-hero h1 {
+                font-size: 42px;
+                letter-spacing: 4px;
+            }
+
             .inner.flex {
                 flex-direction: column;
-                gap: 50px;
+                gap: 0;
+            }
+
+            .about_logo {
+                min-height: 200px;
             }
 
             .logo-display {
-                font-size: 32px;
-                padding: 50px 40px;
+                font-size: 28px;
+                letter-spacing: 3px;
+            }
+
+            .menu a {
+                padding: 25px 30px;
+            }
+
+            .num span {
+                font-size: 24px;
             }
 
             .business-grid {
@@ -900,28 +1056,52 @@
         <div class="container">
             <div class="business-grid">
                 <div class="business-categories fade-in">
-                    <h2>BUSINESS<br>FIELD</h2>
-                    <div class="category active">
-                        <h4>Management<br>Consulting</h4>
-                        <p>경영 컨설팅</p>
+                    <div class="business-header">
+                        <div class="business-title">
+                            <h2>BUSINESS FIELD</h2>
+                        </div>
                     </div>
-                    <div class="category">
-                        <h4>Branding</h4>
-                        <p>브랜딩</p>
-                    </div>
-                    <div class="category">
-                        <h4>Marketing</h4>
-                        <p>마케팅</p>
-                    </div>
-                    <div class="category">
-                        <h4>D&J Consulting<br>Brand</h4>
-                        <p>D&J 컨설팅 브랜드</p>
+                    <div class="business-categories-list">
+                        <div class="category">
+                            <div class="category-content">
+                                <h4>Management<br>Consulting</h4>
+                                <p>경영 컨설팅</p>
+                            </div>
+                        </div>
+                        <div class="category">
+                            <div class="category-content">
+                                <h4>Franchise</h4>
+                                <p>프랜차이즈</p>
+                            </div>
+                        </div>
+                        <div class="category">
+                            <div class="category-content">
+                                <h4>Branding</h4>
+                                <p>브랜딩</p>
+                            </div>
+                        </div>
+                        <div class="category marketing active">
+                            <div class="category-content">
+                                <h4>Marketing</h4>
+                                <p>마케팅</p>
+                            </div>
+                        </div>
+                        <div class="category">
+                            <div class="category-content">
+                                <h4>D&J Consulting<br>Brand</h4>
+                                <p>D&J 컨설팅 브랜드</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="franchise-card fade-in">
-                    <h3>Franchise</h3>
-                    <p>가맹점 창업을 위한 전문 컨설팅 서비스를 제공합니다. 시장 분석부터 운영 관리까지, 성공적인 창업을 위한 모든 과정을 체계적으로 지원합니다. 다년간의 노하우와 전문성을 바탕으로 안전하고 수익성 높은 프랜차이즈 사업을 시작할 수 있도록 도와드립니다.</p>
-                    <a href="#" class="view-more">View More</a>
+                    <div class="franchise-content">
+                        <h3>Marketing</h3>
+                        <p>검색광고, 바이럴 마케팅, SNS마케팅, 유튜브, 각종 배너 광고 등 
+                        다가간에 광고효율을 분석시켜 줄 있는 마케팅 방향을 설정하고 기획하여 
+                        고객시의 매출증진으로 이어질 수 있도록 홍보마케팅 서비스를 제공해드립니다.</p>
+                        <a href="#" class="view-more">View More</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1091,8 +1271,52 @@
         // Business category functionality
         document.querySelectorAll('.category').forEach(category => {
             category.addEventListener('click', () => {
-                document.querySelectorAll('.category').forEach(c => c.classList.remove('active'));
+                // Remove active class from all categories
+                document.querySelectorAll('.category').forEach(c => c.classList.remove('active', 'marketing'));
+                
+                // Add active class to clicked category
                 category.classList.add('active');
+                
+                // Update main content based on category
+                const categoryText = category.querySelector('h4').textContent.trim();
+                const franchiseCard = document.querySelector('.franchise-card');
+                const franchiseContent = franchiseCard.querySelector('.franchise-content');
+                
+                let title, description;
+                
+                switch(categoryText) {
+                    case 'Management\nConsulting':
+                    case 'Management Consulting':
+                        title = 'Management Consulting';
+                        description = '체계적인 경영 컨설팅을 통해 기업의 성장과 발전을 지원합니다. 전략 수립부터 실행까지, 맞춤형 솔루션을 제공하여 경쟁력 있는 기업으로 거듭날 수 있도록 도와드립니다.';
+                        break;
+                    case 'Franchise':
+                        title = 'Franchise';
+                        description = '가맹점 창업을 위한 전문 컨설팅 서비스를 제공합니다. 시장 분석부터 운영 관리까지, 성공적인 창업을 위한 모든 과정을 체계적으로 지원합니다.';
+                        break;
+                    case 'Branding':
+                        title = 'Branding';
+                        description = '강력한 브랜드 구축을 위한 전략적 브랜딩 서비스를 제공합니다. 브랜드 아이덴티티부터 마케팅 전략까지, 차별화된 브랜드 가치를 창출해드립니다.';
+                        break;
+                    case 'Marketing':
+                        title = 'Marketing';
+                        description = '검색광고, 바이럴 마케팅, SNS마케팅, 유튜브, 각종 배너 광고 등 다가간에 광고효율을 분석시켜 줄 있는 마케팅 방향을 설정하고 기획하여 고객시의 매출증진으로 이어질 수 있도록 홍보마케팅 서비스를 제공해드립니다.';
+                        break;
+                    case 'D&J Consulting\nBrand':
+                    case 'D&J Consulting Brand':
+                        title = 'D&J Consulting Brand';
+                        description = 'D&J GROUP만의 독창적인 컨설팅 브랜드를 통해 차별화된 서비스를 제공합니다. 전문성과 신뢰성을 바탕으로 고객의 성공을 위해 최선을 다합니다.';
+                        break;
+                    default:
+                        title = 'Business Field';
+                        description = 'D&J GROUP의 다양한 사업 분야를 통해 고객의 성공을 지원합니다.';
+                }
+                
+                franchiseContent.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                    <a href="#" class="view-more">View More</a>
+                `;
             });
         });
 
