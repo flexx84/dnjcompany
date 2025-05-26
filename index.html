@@ -140,25 +140,29 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(55, 71, 79, 0.6) 0%, rgba(55, 71, 79, 0.4) 100%);
+            background: linear-gradient(135deg, rgba(55, 71, 79, 0.4) 0%, rgba(55, 71, 79, 0.3) 100%);
         }
 
         /* Slide backgrounds */
         .hero-slide:nth-child(1) {
-            background: linear-gradient(rgba(55, 71, 79, 0.4), rgba(55, 71, 79, 0.4)),
-                        url('images/mainslide1.jpg');
+            background: linear-gradient(rgba(55, 71, 79, 0.3), rgba(55, 71, 79, 0.3)),
+                        url('images/dnjmain.png');
             background-size: cover;
             background-position: center;
         }
 
         .hero-slide:nth-child(2) {
-            background: linear-gradient(rgba(55, 71, 79, 0.4), rgba(55, 71, 79, 0.4)),
+            background: linear-gradient(rgba(55, 71, 79, 0.3), rgba(55, 71, 79, 0.3)),
                         url('images/mainslide2.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         .hero-slide:nth-child(3) {
-            background: linear-gradient(rgba(55, 71, 79, 0.4), rgba(55, 71, 79, 0.4)),
+            background: linear-gradient(rgba(55, 71, 79, 0.3), rgba(55, 71, 79, 0.3)),
                         url('images/mainslide3.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .hero-content {
@@ -227,7 +231,7 @@
 
         .company-hero {
             height: 70vh;
-            background: linear-gradient(135deg, rgba(55, 71, 79, 0.5), rgba(69, 90, 100, 0.5)),
+            background: linear-gradient(135deg, rgba(55, 71, 79, 0.4), rgba(69, 90, 100, 0.4)),
                         url('images/company.jpg');
             background-size: cover;
             background-position: center;
@@ -620,29 +624,53 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            transition: all 0.6s ease;
         }
 
         .franchise-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transform: rotate(45deg);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            transition: all 0.6s ease;
+            z-index: 1;
         }
 
         .franchise-card::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><circle fill="rgba(255,255,255,0.1)" cx="150" cy="150" r="100"/><circle fill="rgba(255,255,255,0.05)" cx="200" cy="100" r="60"/></svg>');
-            background-size: contain;
-            opacity: 0.3;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 138, 101, 0.85) 0%, rgba(255, 112, 67, 0.85) 100%);
+            z-index: 2;
+        }
+
+        /* 각 카테고리별 배경 이미지 */
+        .franchise-card.management::before {
+            background-image: url('images/bf1.jpg');
+        }
+
+        .franchise-card.franchise::before {
+            background-image: url('images/bf2.jpg');
+        }
+
+        .franchise-card.branding::before {
+            background-image: url('images/bf3.jpg');
+        }
+
+        .franchise-card.marketing::before {
+            background-image: url('images/bf4.jpg');
+        }
+
+        .franchise-card.consulting::before {
+            background-image: url('images/mainslide3.jpg');
         }
 
         .franchise-content {
@@ -1006,7 +1034,7 @@
                         <a href="#company" data-tab="company">
                             <div class="num">
                                 <span>01</span>
-                                
+                                <div class="icon_mark">🏢</div>
                             </div>
                             <h5>Company</h5>
                         </a>
@@ -1015,7 +1043,7 @@
                         <a href="#ceo" data-tab="ceo">
                             <div class="num">
                                 <span>02</span>
-                               
+                                <div class="icon_mark">👔</div>
                             </div>
                             <h5>CEO</h5>
                         </a>
@@ -1024,7 +1052,7 @@
                         <a href="#history" data-tab="history">
                             <div class="num">
                                 <span>03</span>
-                               
+                                <div class="icon_mark">📈</div>
                             </div>
                             <h5>History</h5>
                         </a>
@@ -1033,7 +1061,7 @@
                         <a href="#directions" data-tab="directions">
                             <div class="num">
                                 <span>04</span>
-                                
+                                <div class="icon_mark">📍</div>
                             </div>
                             <h5>Directions</h5>
                         </a>
@@ -1093,7 +1121,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="franchise-card fade-in">
+                <div class="franchise-card marketing fade-in">
                     <div class="franchise-content">
                         <h3>Marketing</h3>
                         <p>검색광고, 바이럴 마케팅, SNS마케팅, 유튜브, 각종 배너 광고 등 
@@ -1280,41 +1308,59 @@
                 const franchiseCard = document.querySelector('.franchise-card');
                 const franchiseContent = franchiseCard.querySelector('.franchise-content');
                 
-                let title, description;
+                // Remove all category classes
+                franchiseCard.classList.remove('management', 'franchise', 'branding', 'marketing', 'consulting');
+                
+                let title, description, categoryClass;
                 
                 switch(categoryText) {
                     case 'Management\nConsulting':
                     case 'Management Consulting':
                         title = 'Management Consulting';
-                        description = '체계적인 경영 컨설팅을 통해 기업의 성장과 발전을 지원합니다. 전략 수립부터 실행까지, 맞춤형 솔루션을 제공하여 경쟁력 있는 기업으로 거듭날 수 있도록 도와드립니다.';
+                        description = '체계적인 경영 컨설팅을 통해 기업의 성장과 발전을 지원합니다. 전략 수립부터 실행까지, 맞춤형 솔루션을 제공하여 경쟁력 있는 기업으로 거듭날 수 있도록 도와드립니다. 데이터 분석과 전문 지식을 바탕으로 최적의 경영 전략을 제시합니다.';
+                        categoryClass = 'management';
                         break;
                     case 'Franchise':
                         title = 'Franchise';
-                        description = '가맹점 창업을 위한 전문 컨설팅 서비스를 제공합니다. 시장 분석부터 운영 관리까지, 성공적인 창업을 위한 모든 과정을 체계적으로 지원합니다.';
+                        description = '가맹점 창업을 위한 전문 컨설팅 서비스를 제공합니다. 시장 분석부터 운영 관리까지, 성공적인 창업을 위한 모든 과정을 체계적으로 지원합니다. 검증된 비즈니스 모델과 운영 노하우를 통해 안정적인 수익 창출을 보장합니다.';
+                        categoryClass = 'franchise';
                         break;
                     case 'Branding':
                         title = 'Branding';
-                        description = '강력한 브랜드 구축을 위한 전략적 브랜딩 서비스를 제공합니다. 브랜드 아이덴티티부터 마케팅 전략까지, 차별화된 브랜드 가치를 창출해드립니다.';
+                        description = '강력한 브랜드 구축을 위한 전략적 브랜딩 서비스를 제공합니다. 브랜드 아이덴티티부터 마케팅 전략까지, 차별화된 브랜드 가치를 창출해드립니다. 독창적이고 일관성 있는 브랜드 경험을 통해 고객 충성도를 높입니다.';
+                        categoryClass = 'branding';
                         break;
                     case 'Marketing':
                         title = 'Marketing';
                         description = '검색광고, 바이럴 마케팅, SNS마케팅, 유튜브, 각종 배너 광고 등 다가간에 광고효율을 분석시켜 줄 있는 마케팅 방향을 설정하고 기획하여 고객시의 매출증진으로 이어질 수 있도록 홍보마케팅 서비스를 제공해드립니다.';
+                        categoryClass = 'marketing';
                         break;
                     case 'D&J Consulting\nBrand':
                     case 'D&J Consulting Brand':
                         title = 'D&J Consulting Brand';
-                        description = 'D&J GROUP만의 독창적인 컨설팅 브랜드를 통해 차별화된 서비스를 제공합니다. 전문성과 신뢰성을 바탕으로 고객의 성공을 위해 최선을 다합니다.';
+                        description = 'D&J GROUP만의 독창적인 컨설팅 브랜드를 통해 차별화된 서비스를 제공합니다. 전문성과 신뢰성을 바탕으로 고객의 성공을 위해 최선을 다합니다. 혁신적인 솔루션과 체계적인 프로세스로 최고의 결과를 보장합니다.';
+                        categoryClass = 'consulting';
                         break;
                     default:
                         title = 'Business Field';
                         description = 'D&J GROUP의 다양한 사업 분야를 통해 고객의 성공을 지원합니다.';
+                        categoryClass = 'marketing';
                 }
                 
-                franchiseContent.innerHTML = `
-                    <h3>${title}</h3>
-                    <p>${description}</p>
-                    <a href="#" class="view-more">View More</a>
-                `;
+                // Add new category class for background
+                franchiseCard.classList.add(categoryClass);
+                
+                // Update content with smooth transition
+                franchiseContent.style.opacity = '0';
+                
+                setTimeout(() => {
+                    franchiseContent.innerHTML = `
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                        <a href="#" class="view-more">View More</a>
+                    `;
+                    franchiseContent.style.opacity = '1';
+                }, 300);
             });
         });
 
