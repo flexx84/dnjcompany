@@ -502,18 +502,21 @@
     align-items: center;        /* ← 추가 */
 }
         .business-grid {
-            display: grid;
-            grid-template-columns: 35% 65%;
-            gap: 0;
-            align-items: stretch;
-            min-height: 600px;
-            background: white;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 25px 80px rgba(55, 71, 79, 0.12);
-            position: relative;
-            z-index: 2;
-        }
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 0;
+    align-items: stretch;
+    min-height: 600px;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(55, 71, 79, 0.12);
+    position: relative;
+    z-index: 2;
+    /* 가운데 정렬과 가로 길이 늘리기 */
+    margin: 0 auto;
+    width: 90%;  /* 또는 85%, 95% 등 원하는 크기로 조정 */
+    max-width: 1400px;
 
         .business-categories {
             background: linear-gradient(135deg, #f8f9fa 0%, #ECEFF1 100%);
