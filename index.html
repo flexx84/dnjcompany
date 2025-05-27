@@ -22,15 +22,16 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(55, 71, 79, 0.95);
-            backdrop-filter: blur(10px);
+            background: transparent; 
+            backdrop-filter: none;
             z-index: 1000;
             padding: 15px 0;
             transition: all 0.3s ease;
         }
 
         .header.scrolled {
-            background: rgba(55, 71, 79, 0.98);
+            background: rgba(55, 71, 79, 0.7);
+            backdrop-filter: blur(10px); 
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
@@ -1126,8 +1127,7 @@ css.footer-content {
                     <li><a href="#home">회사소개</a></li>
                     <li><a href="#about">회사연혁</a></li>
                     <li><a href="#business">D&J 컨설팅사업</a></li>
-                    <li><a href="#franchise">창업 컨설팅 사업</a></li>
-                    <li><a href="#notice">D&J 게시판 소식</a></li>
+                    <li><a href="#notice">D&J 소식</a></li>
                     <li><a href="#contact">LOGIN</a></li>
                 </ul>
                 <div class="mobile-menu">☰</div>
