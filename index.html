@@ -499,11 +499,15 @@
 
         /* Business Section */
         .business-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
-        }
+            padding: 0;  /* 패딩 완전 제거 */
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;  /* 전체 화면 높이 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
         .business-section::before {
             content: '';
@@ -515,26 +519,30 @@
             background: radial-gradient(circle at 20% 80%, rgba(255, 138, 101, 0.05) 0%, transparent 50%);
         }
  .business-section .container {
-    display: flex;
+      display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;  /* 패딩 제거 */
+    margin: 0;   /* 마진 제거 */
+    width: 100%; /* 전체 너비 */
+    height: 100vh; /* 전체 높이 */
 }
         .business-grid {
-    display: grid;
+   display: grid;
     grid-template-columns: 35% 65%;
     gap: 0;
     align-items: start;
-    height: 800px;
+    min-height: 100vh;  /* 500px에서 100vh로 변경 */
     background: white;
-    border-radius: 30px;
+    border-radius: 0;   /* 30px에서 0으로 변경하여 모서리 직각 */
     overflow: hidden;
-    box-shadow: 0 25px 80px rgba(55, 71, 79, 0.12);
+    box-shadow: none;   /* 그림자 제거 */
     position: relative;
-    z-index: 2;  /* 가운데 정렬과 가로 길이 늘리기 */
-    margin: 0 auto;
-    width: 100%;  /* 또는 85%, 95% 등 원하는 크기로 조정 */
-    max-width: 1440px;
-        }
+    z-index: 2;
+    margin: 0;
+    width: 100%;
+    max-width: none;    /* 최대 너비 제한 제거 */
+}
         .business-categories {
             background: linear-gradient(135deg, #f8f9fa 0%, #ECEFF1 100%);
             padding: 60px 40px;
