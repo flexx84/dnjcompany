@@ -514,10 +514,10 @@
             height: 100%;
             background: radial-gradient(circle at 20% 80%, rgba(255, 138, 101, 0.05) 0%, transparent 50%);
         }
-   .business-section .{
+ .business-section .container {
     display: flex;
-    justify-content: center;    /* ← 추가 */
-    align-items: center;        /* ← 추가 */
+    justify-content: center;
+    align-items: center;
 }
         .business-grid {
     display: grid;
@@ -535,7 +535,7 @@
     margin: 0 auto;
     width: 90%;  /* 또는 85%, 95% 등 원하는 크기로 조정 */
     max-width: 1400px;
-
+        }
         .business-categories {
             background: linear-gradient(135deg, #f8f9fa 0%, #ECEFF1 100%);
             padding: 60px 40px;
@@ -768,7 +768,10 @@
 
 /* Container 스타일 추가 */
 .container {
-
+ max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 /* Notice Section 스타일 수정 */
 .notice-section {
@@ -885,7 +888,7 @@ css.footer-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 30px;  /* 간격을 줄임 */
+    gap: 30px;
     margin-bottom: 40px;
     max-width: 800px;
     margin: 0 auto 40px auto;
