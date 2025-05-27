@@ -981,22 +981,38 @@ css.footer-content {
     position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: flex-start; /* center에서 flex-start로 변경 */
+     flex-direction: column; /* 세로 배치로 변경 */
     background: linear-gradient(rgba(55, 71, 79, 0.8), rgba(55, 71, 79, 0.6)),
                 url('images/company.jpg');
     background-size: cover;
     background-position: center;
     margin: 0;
-    padding: 100px 10% 50px 10%;  /* 좌우에 10% 여백 */
+    padding: 100px 10% 50px 10% !important; /* !important 추가 */
+}
+
+            .company-content {
+    width: 100%;
+    background: transparent;
+    position: static;
+    z-index: auto;
+    flex: 1;
 }
 
 .inner.flex {
-    display: flex;
-    align-items: flex-start; /* flex-end에서 flex-start로 변경 */
-    justify-content: flex-start; /* space-between에서 flex-start로 변경 */
-    gap: 50px; /* 간격 추가 */
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: 50px !important;
     min-height: auto;
-    width: 100%;
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+.tab-content-section {
+    padding: 50px 0 !important;
+    background: transparent !important;
+    width: 100% !important;
 }
 
 .about_logo {
