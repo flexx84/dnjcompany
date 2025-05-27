@@ -690,7 +690,7 @@
 
         /* 각 카테고리별 배경 이미지 */
         .franchise-card.management::before {
-            background-image: url('images/bf1.jpg');
+            background-image: url('images/mainslide1.jpg');
         }
 
         .franchise-card.franchise::before {
@@ -708,7 +708,9 @@
         .franchise-card.consulting::before {
             background-image: url('images/mainslide4.jpg');
         }
-
+.franchise-card.djconsulting::before {
+    background-image: url('images/mainslide4.jpg');  /* 적절한 이미지로 변경 */
+}
         .franchise-content {
             position: relative;
             z-index: 3;
@@ -1488,7 +1490,7 @@ css.footer-content {
                     case 'D&J Consulting Brand':
                         title = 'D&J Consulting Brand';
                         description = 'D&J GROUP만의 독창적인 컨설팅 브랜드를 통해 차별화된 서비스를 제공합니다. 전문성과 신뢰성을 바탕으로 고객의 성공을 위해 최선을 다합니다. 혁신적인 솔루션과 체계적인 프로세스로 최고의 결과를 보장합니다.';
-                        categoryClass = 'consulting';
+                        categoryClass = 'djconsulting';
                         break;
                     default:
                         title = 'Business Field';
