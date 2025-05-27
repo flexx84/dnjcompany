@@ -545,14 +545,14 @@
     max-width: 1440px;  /* 최대 너비 제한 */
 }
 
-    .business-grid-rolling {
+.business-section-rolling {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 2;
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -603,9 +603,9 @@
 .franchise-card {
     position: relative;
     z-index: 10;
-}    
+}
         
-        .business-categories {
+    .business-categories {
     background: linear-gradient(135deg, #f8f9fa 0%, #ECEFF1 100%);
     padding: 40px 30px;  /* 60px 40px에서 축소 */
     display: flex;
@@ -1347,8 +1347,7 @@
 </section>
     <section class="business-section" id="business">
         <div class="container">
-            <div class="business-grid">
-    <div class="business-grid-rolling">
+            <div class="business-grid-rolling">
         <div class="business-rolling-wrap">
             <div class="business-rolling-text business-rolling-1">
                 <span class="business-rolling-item">D&J GROUP</span>
@@ -1368,7 +1367,8 @@
             </div>
         </div>
     </div>                
-                <div class="business-categories fade-in">
+            <div class="business-grid">
+                    <div class="business-categories fade-in">
                     <div class="business-header">
                         <div class="business-title">
                             <h2>BUSINESS FIELD</h2>
