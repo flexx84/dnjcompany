@@ -708,9 +708,8 @@
         .franchise-card.consulting::before {
             background-image: url('images/mainslide4.jpg');
         }
-.franchise-card.djconsulting::before {
-    background-image: url('images/mainslide4.jpg');  /* 적절한 이미지로 변경 */
-}
+
+
         .franchise-content {
             position: relative;
             z-index: 3;
@@ -766,7 +765,32 @@
         .view-more:hover::after {
             transform: translateX(3px);
         }
+/* 기본 로고 스타일 */
+.default-logo {
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+}
 
+.default-logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 30px;
+    filter: brightness(0) invert(1);  /* 흰색으로 변경 */
+}
+
+.default-logo h3 {
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.default-logo p {
+    font-size: 18px;
+    opacity: 0.7;
+}
         /* Notice Section */
 
 /* Container 스타일 추가 */
@@ -1275,11 +1299,10 @@ css.footer-content {
                 </div>
                 <div class="franchise-card fade-in">
                     <div class="franchise-content">
-                        <h3>Marketing</h3>
-                        <p>검색광고, 바이럴 마케팅, SNS마케팅, 유튜브, 각종 배너 광고 등 
-                        다가간에 광고효율을 분석시켜 줄 있는 마케팅 방향을 설정하고 기획하여 
-                        고객시의 매출증진으로 이어질 수 있도록 홍보마케팅 서비스를 제공해드립니다.</p>
-                        <a href="#" class="view-more">View More</a>
+                         <div class="default-logo">
+            <img src="images/dnj.png" alt="D&J GROUP">
+            <h3>D&J GROUP</h3>
+            <p>사업 분야를 선택해주세요</p>
                     </div>
                 </div>
             </div>
