@@ -544,6 +544,67 @@
     width: 100%;  /* 100%에서 90%로 축소 */
     max-width: 1440px;  /* 최대 너비 제한 */
 }
+
+    .business-grid-rolling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.business-rolling-wrap {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.business-rolling-text {
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 80px;
+    font-weight: 900;
+    color: rgba(26, 45, 29, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.business-rolling-item {
+    margin: 0 40px;
+    flex-shrink: 0;
+}
+
+.business-rolling-1 {
+    animation: businessRolling1 60s linear infinite;
+}
+
+.business-rolling-2 {
+    animation: businessRolling2 60s linear infinite reverse;
+}
+
+@keyframes businessRolling1 {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes businessRolling2 {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Business 카테고리와 카드가 롤링 텍스트보다 앞에 오도록 */
+.business-categories,
+.franchise-card {
+    position: relative;
+    z-index: 10;
+}    
+        
         .business-categories {
     background: linear-gradient(135deg, #f8f9fa 0%, #ECEFF1 100%);
     padding: 40px 30px;  /* 60px 40px에서 축소 */
@@ -1287,6 +1348,26 @@
     <section class="business-section" id="business">
         <div class="container">
             <div class="business-grid">
+    <div class="business-grid-rolling">
+        <div class="business-rolling-wrap">
+            <div class="business-rolling-text business-rolling-1">
+                <span class="business-rolling-item">D&J GROUP</span>
+                <span class="business-rolling-item">FRANCHISE</span>
+                <span class="business-rolling-item">CONSULTING</span>
+                <span class="business-rolling-item">D&J GROUP</span>
+                <span class="business-rolling-item">FRANCHISE</span>
+                <span class="business-rolling-item">CONSULTING</span>
+            </div>
+            <div class="business-rolling-text business-rolling-2">
+                <span class="business-rolling-item">BUSINESS</span>
+                <span class="business-rolling-item">SUCCESS</span>
+                <span class="business-rolling-item">PARTNERSHIP</span>
+                <span class="business-rolling-item">BUSINESS</span>
+                <span class="business-rolling-item">SUCCESS</span>
+                <span class="business-rolling-item">PARTNERSHIP</span>
+            </div>
+        </div>
+    </div>                
                 <div class="business-categories fade-in">
                     <div class="business-header">
                         <div class="business-title">
