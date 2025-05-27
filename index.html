@@ -1566,6 +1566,48 @@ css.footer-content {
             const navMenu = document.querySelector('.nav-menu');
             navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
         });
+        // 섹션별 스크롤 스냅
+let isScrolling = false;
+
+window.addEventListener('wheel', function(e) {
+    if (isScrolling) return;
+    
+    e.preventDefault();
+    isScrolling = true;
+    
+    const sections = document.querySelectorAll('.hero, .company-section, .business-section, .notice-section, .footer');
+    const currentScroll = window.pageYOffset;
+    let targetSection = null;
+    
+    if (e.deltaY > 0) {
+        // 아래로 스크롤
+        for (let section of sections) {
+            if (section.offsetTop > currentScroll + 100) {
+                targetSection = section;
+                break;
+            }
+        }
+    } else {
+        // 위로 스크롤
+        for (let i = sections.length - 1; i >= 0; i--) {
+            if (sections[i].offsetTop < currentScroll - 100) {
+                targetSection = sections[i];
+                break;
+            }
+        }
+    }
+    
+    if (targetSection) {
+        targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+    
+    setTimeout(() => {
+        isScrolling = false;
+    }, 1000);
+}, { passive: false });
     </script>
 </body>
 </html>
