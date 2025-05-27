@@ -107,6 +107,8 @@
             text-align: left;
             color: white;
             overflow: hidden;
+            z-index: 1; /* z-index 추가 */
+
         }
 
         .hero-slides {
@@ -134,14 +136,15 @@
         }
 
         .hero-slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(55, 71, 79, 0.4) 0%, rgba(55, 71, 79, 0.3) 100%);
-        }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(55, 71, 79, 0.4) 0%, rgba(55, 71, 79, 0.3) 100%);
+    z-index: 2; /* z-index 추가 */
+}
 
         /* Slide backgrounds */
         .hero-slide:nth-child(1) {
@@ -165,33 +168,37 @@
             background-position: center;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            padding: 0 30px;
-            width: 100%;
-        }
+       .hero-content {
+    position: relative;
+    z-index: 10; /* z-index 높게 설정 */
+    max-width: 1200px;
+    padding: 0 30px;
+    width: 100%;
+    color: white !important; /* 강제로 흰색 적용 */
+}
 
-        .hero-content h1 {
-            font-size: 56px;
-            font-weight: 300;
-            margin-bottom: 30px;
-            line-height: 1.2;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    opacity: 1 !important; /* 강제로 표시 */
+    transform: translateY(0) !important; /* 변형 제거 */
+    animation: none !important; /* 애니메이션 제거 */
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* 텍스트 그림자 추가 */
+}
 
-        .hero-content p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            max-width: 600px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.8s forwards;
-        }
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    opacity: 1 !important; /* 강제로 표시 */
+    transform: translateY(0) !important; /* 변형 제거 */
+    animation: none !important; /* 애니메이션 제거 */
+    max-width: 600px;
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* 텍스트 그림자 추가 */
+}
 
         .hero-nav {
             position: absolute;
