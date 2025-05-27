@@ -499,14 +499,15 @@
 
         /* Business Section */
         .business-section {
-            padding: 0;  /* 패딩 완전 제거 */
+    padding: 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     position: relative;
     overflow: hidden;
-    min-height: 100vh;  /* 전체 화면 높이 */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10vh 5%;  /* 상하 여백 추가 */
 }
 
         .business-section::before {
@@ -531,26 +532,27 @@
    display: grid;
     grid-template-columns: 35% 65%;
     gap: 0;
-    align-items: start;
-    min-height: 100vh;  /* 500px에서 100vh로 변경 */
+    align-items: stretch;  /* start에서 stretch로 변경 */
+    height: 60vh;  /* min-height: 100vh에서 60vh로 축소 */
     background: white;
-    border-radius: 0;   /* 30px에서 0으로 변경하여 모서리 직각 */
+    border-radius: 20px;  /* 모서리 둥글게 */
     overflow: hidden;
-    box-shadow: none;   /* 그림자 제거 */
+    box-shadow: 0 25px 80px rgba(55, 71, 79, 0.12);  /* 그림자 다시 추가 */
     position: relative;
     z-index: 2;
-    margin: 0;
-    width: 100%;
-    max-width: none;    /* 최대 너비 제한 제거 */
+    margin: 0 auto;
+    width: 90%;  /* 100%에서 90%로 축소 */
+    max-width: 1440px;  /* 최대 너비 제한 */
 }
         .business-categories {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ECEFF1 100%);
-            padding: 60px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            position: relative;
-        }
+    background: linear-gradient(135deg, #f8f9fa 0%, #ECEFF1 100%);
+    padding: 40px 30px;  /* 60px 40px에서 축소 */
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    height: 100%;
+}
 
         .business-categories::before {
             content: '';
@@ -658,30 +660,31 @@
         }
 
         .franchise-card {
-            background: linear-gradient(135deg, #FF8A65 0%, #FF7043 100%);
-            padding: 80px 60px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: all 0.6s ease;
-        }
+    background: linear-gradient(135deg, #FF8A65 0%, #FF7043 100%);
+    padding: 40px 50px;  /* 80px 60px에서 축소 */
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.6s ease;
+    height: 100%;
+}
 
         .franchise-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            min-height: 500px;
+              content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center bottom;  /* center에서 center bottom으로 변경 */
+    opacity: 0.25;  /* 0.15에서 0.25로 증가 */
+    transition: all 0.6s ease;
+    z-index: 1;
             background-image: url('images/mainslide3.png'); /* 기본 배경 */
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            transition: all 0.6s ease;
-            z-index: 1;
         }
 
         .franchise-card::after {
